@@ -4,267 +4,128 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>McCandless Automotive Services | Grove City, PA</title>
-  <meta name="description" content="Auto repair and maintenance in Grove City, PA. Brakes, engine diagnostics, state inspection, tires, oil changes and more. Request an appointment online.">
+  <meta name="description" content="Auto repair and maintenance in Grove City, PA. Brakes, diagnostics, state inspection, tires, oil changes and more.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-
   <header class="topbar">
     <div class="wrap topbar-inner">
-      <a class="brand" href="#top" aria-label="McCandless Automotive Services home">
+      <a class="brand" href="#top">
         <span class="brand-mark" aria-hidden="true">M</span>
         <span class="brand-name">McCandless<span>Automotive Services</span></span>
       </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
-      <nav id="nav" class="nav" aria-label="Main">
-        <a href="#services">Services</a>
-        <a href="#estimate">Estimate</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#faq">FAQ</a>
-        <a href="#visit">Visit</a>
-        <a class="nav-call" data-phone-link href="#">Call</a>
-      </nav>
+      <a class="top-call" data-phone-link href="#"><span data-phone></span></a>
     </div>
   </header>
 
-  <main id="main">
-    <!-- HERO -->
+  <main>
     <section class="hero" id="top">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <p class="status" data-status><span class="dot"></span><span data-status-text>Checking hours…</span></p>
-          <h1>Honest repair for Grove City drivers.</h1>
-          <p class="lede">Family-run shop on the edge of town. We diagnose it, show you what we found, and quote before we turn a wrench. Domestic, import, trucks and SUVs.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#book">Request an appointment</a>
-            <a class="btn btn-ghost" data-phone-link href="#"><span data-phone>Call the shop</span></a>
-          </div>
-          <ul class="proof">
-            <li><strong>PA State Inspection</strong> &amp; emissions</li>
-            <li><strong>12-month / 12,000-mile</strong> parts &amp; labor warranty</li>
-            <li><strong>Free</strong> shuttle in town</li>
-          </ul>
+      <div class="wrap">
+        <p class="status" data-status><span class="dot"></span><span data-status-text>Checking hours…</span></p>
+        <h1>Honest car repair in Grove City.</h1>
+        <p class="lede">Local shop. We'll tell you what's wrong, what it costs, and what can wait.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#request">Request service</a>
+          <a class="btn btn-ghost" data-phone-link href="#">Call <span data-phone></span></a>
         </div>
+      </div>
+    </section>
 
-        <!-- Repair order ticket: the booking form -->
-        <form class="ticket" id="book" aria-labelledby="ticket-title" novalidate>
-          <div class="ticket-head">
-            <h2 id="ticket-title">Repair order</h2>
-            <p class="ticket-no">No. <span data-ro></span></p>
-          </div>
-          <p class="ticket-sub">Fill this out and we'll call to confirm a time.</p>
+    <section class="section" id="services">
+      <div class="wrap">
+        <h2>What we do</h2>
+        <ul class="services">
+          <li>Oil changes</li>
+          <li>PA state inspection &amp; emissions</li>
+          <li>Brakes</li>
+          <li>Check engine light</li>
+          <li>Tires &amp; alignment</li>
+          <li>Batteries &amp; starting</li>
+          <li>Suspension &amp; steering</li>
+          <li>Exhaust &amp; mufflers</li>
+          <li>Heating &amp; A/C</li>
+          <li>General repair</li>
+        </ul>
+        <p class="services-note">Don't see it? Call and ask.</p>
+      </div>
+    </section>
 
+    <section class="section section-concrete" id="request">
+      <div class="wrap request-grid">
+        <div>
+          <h2>Request service</h2>
+          <p>Tell us about your vehicle and we'll call you back to set up a time.</p>
+          <p>Need it sooner? Call <a data-phone-link href="#"><span data-phone></span></a>.</p>
+        </div>
+        <form class="ticket" data-request novalidate>
           <div class="field-row">
-            <label>Your name
+            <label>Name
               <input name="name" autocomplete="name" required>
             </label>
             <label>Phone
               <input name="phone" type="tel" autocomplete="tel" required>
             </label>
           </div>
-          <div class="field-row">
-            <label>Year
-              <input name="year" inputmode="numeric" maxlength="4" placeholder="2017">
-            </label>
-            <label class="grow">Make &amp; model
-              <input name="vehicle" placeholder="Ford F-150" required>
-            </label>
-          </div>
-          <label>What does it need?
-            <select name="service" data-service-select required>
-              <option value="">Choose a service</option>
-            </select>
+          <label>Vehicle
+            <input name="vehicle" placeholder="2015 Chevy Silverado" required>
           </label>
-          <label>Describe the problem <span class="opt">(optional)</span>
-            <textarea name="notes" rows="3" placeholder="Grinding from the front left when braking…"></textarea>
+          <label>What's going on?
+            <textarea name="notes" rows="4" placeholder="Needs inspection, brakes are squeaking…" required></textarea>
           </label>
-          <div class="field-row">
-            <label>Preferred day
-              <input name="date" type="date" data-date required>
-            </label>
-            <label>Drop-off
-              <select name="time">
-                <option>Morning (8–10)</option>
-                <option>Midday (10–1)</option>
-                <option>Afternoon (1–4)</option>
-              </select>
-            </label>
-          </div>
-          <label class="check"><input type="checkbox" name="wait"> I'd like to wait at the shop</label>
-
-          <p class="form-error" role="alert" hidden></p>
+          <p class="form-error" role="alert" hidden>Fill in all the fields so we can call you back.</p>
           <button class="btn btn-primary btn-block" type="submit">Send request</button>
-          <div class="ticket-confirm" hidden tabindex="-1">
-            <h3>Request ready to send</h3>
-            <p>Your email app should open with the details filled in. If it didn't, call us at <a data-phone-link href="#"><span data-phone></span></a> and mention repair order <strong data-ro></strong>.</p>
-          </div>
+          <p class="form-done" hidden tabindex="-1">Your email app should open with your request filled in. Just hit send. If it didn't open, give us a call.</p>
         </form>
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section class="section" id="services">
+    <section class="section" id="reviews">
       <div class="wrap">
-        <div class="section-head">
-          <h2>What we work on</h2>
-          <p>Starting prices for most cars and light trucks. Final cost depends on your vehicle; we always quote before work begins.</p>
-        </div>
-        <div class="filters" role="tablist" aria-label="Filter services">
-          <button role="tab" aria-selected="true" data-filter="all">All</button>
-          <button role="tab" aria-selected="false" data-filter="maintenance">Maintenance</button>
-          <button role="tab" aria-selected="false" data-filter="repair">Repair</button>
-          <button role="tab" aria-selected="false" data-filter="inspection">Inspection</button>
-        </div>
-        <ul class="board" data-board></ul>
-      </div>
-    </section>
-
-    <!-- ESTIMATOR -->
-    <section class="section section-dark" id="estimate">
-      <div class="wrap estimate-grid">
-        <div>
-          <h2>Ballpark your bill</h2>
-          <p>Pick what you need and your vehicle type. This is a rough range, not a quote. We'll give you an exact number after a look.</p>
-          <fieldset class="vehicle-type">
-            <legend>Vehicle</legend>
-            <label><input type="radio" name="vt" value="1" checked> Car</label>
-            <label><input type="radio" name="vt" value="1.15"> SUV / minivan</label>
-            <label><input type="radio" name="vt" value="1.3"> Truck / diesel</label>
-          </fieldset>
-          <div class="est-list" data-est-list></div>
-        </div>
-        <aside class="est-total" aria-live="polite">
-          <p class="est-label">Estimated range</p>
-          <p class="est-range" data-est-range>$0</p>
-          <p class="est-items" data-est-items>Nothing selected yet. Check a service to start.</p>
-          <a class="btn btn-yellow btn-block" href="#book" data-est-book>Book these services</a>
-        </aside>
-      </div>
-    </section>
-
-    <!-- MAINTENANCE REMINDER -->
-    <section class="section" id="oil">
-      <div class="wrap oil-grid">
-        <div>
-          <h2>When's your next oil change?</h2>
-          <p>Enter your last service and how you drive. We'll tell you when you're due.</p>
-        </div>
-        <form class="oil-form" data-oil>
-          <label>Mileage at last change
-            <input type="number" name="last" min="0" step="1" placeholder="84,500" required>
-          </label>
-          <label>Oil type
-            <select name="interval">
-              <option value="3000">Conventional (3,000 mi)</option>
-              <option value="5000" selected>Synthetic blend (5,000 mi)</option>
-              <option value="7500">Full synthetic (7,500 mi)</option>
-            </select>
-          </label>
-          <label>Miles you drive a week
-            <input type="number" name="weekly" min="1" value="250">
-          </label>
-          <button class="btn btn-primary" type="submit">Calculate</button>
-          <p class="oil-result" aria-live="polite" data-oil-result></p>
-        </form>
-      </div>
-    </section>
-
-    <!-- REVIEWS -->
-    <section class="section section-concrete" id="reviews">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>What customers say</h2>
-          <p class="note">Sample reviews. Replace these with real ones from Google or Facebook.</p>
-        </div>
-        <div class="reviews" data-reviews>
-          <figure class="review" data-active>
-            <blockquote>Another shop told me I needed a new transmission. They found a bad sensor and had me back on the road the same day for under two hundred bucks.</blockquote>
+        <h2>What customers say</h2>
+        <!-- Sample reviews: replace with real ones -->
+        <div class="reviews">
+          <figure>
+            <blockquote>Another shop told me I needed a new transmission. They found a bad sensor and had me back on the road the same day.</blockquote>
             <figcaption>Dave R., Grove City</figcaption>
           </figure>
-          <figure class="review">
-            <blockquote>They texted me photos of my worn brake pads before doing anything. No pressure, fair price, done before lunch.</blockquote>
+          <figure>
+            <blockquote>Showed me my worn brake pads before doing anything. No pressure, fair price.</blockquote>
             <figcaption>Jenna M., Mercer</figcaption>
           </figure>
-          <figure class="review">
-            <blockquote>I've taken my farm truck here for years. They tell you straight what can wait and what can't.</blockquote>
+          <figure>
+            <blockquote>Been bringing my truck here for years. They tell you straight what can wait and what can't.</blockquote>
             <figcaption>Tom K., Pine Township</figcaption>
           </figure>
-          <figure class="review">
-            <blockquote>Got my daughter's car inspected while she was home from college. Quick, friendly, and they drove her back to campus.</blockquote>
-            <figcaption>Lisa P., Slippery Rock</figcaption>
-          </figure>
-        </div>
-        <div class="review-nav">
-          <button data-rev="prev" aria-label="Previous review">Previous</button>
-          <span data-rev-count>1 of 4</span>
-          <button data-rev="next" aria-label="Next review">Next</button>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="section" id="faq">
-      <div class="wrap faq-wrap">
-        <h2>Common questions</h2>
-        <div class="faq">
-          <details>
-            <summary>Do I need an appointment for a state inspection?</summary>
-            <p>It helps. Inspections take about an hour, and booked cars go first. We also take walk-ins when a bay is open.</p>
-          </details>
-          <details>
-            <summary>Will you call before doing extra work?</summary>
-            <p>Always. If we find something beyond what you approved, we call or text with photos and a price. Nothing extra happens without your OK.</p>
-          </details>
-          <details>
-            <summary>Can I bring my own parts?</summary>
-            <p>In most cases, yes. Labor is charged as usual, and our warranty covers labor only, not parts you supply.</p>
-          </details>
-          <details>
-            <summary>What does the warranty cover?</summary>
-            <p>Parts and labor on our repairs for 12 months or 12,000 miles, whichever comes first.</p>
-          </details>
-          <details>
-            <summary>Do you offer rides?</summary>
-            <p>Yes. We run a free shuttle anywhere in Grove City, including the college and the Premium Outlets.</p>
-          </details>
-          <details>
-            <summary>How do I pay?</summary>
-            <p>Cash, check, and all major cards. Ask us about financing for larger repairs.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- VISIT -->
     <section class="section section-dark" id="visit">
       <div class="wrap visit-grid">
         <div>
-          <h2>Visit the shop</h2>
+          <h2>Hours &amp; location</h2>
           <address>
             <span data-address-line></span><br>
             <span data-city-line></span>
           </address>
           <p><a class="big-phone" data-phone-link href="#"><span data-phone></span></a></p>
-          <p><a data-email-link href="#"><span data-email></span></a></p>
           <table class="hours" aria-label="Shop hours">
             <tbody data-hours></tbody>
           </table>
         </div>
         <div class="map">
-          <iframe title="Map of Grove City, PA" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-map></iframe>
+          <iframe title="Map to the shop" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-map></iframe>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="wrap footer-inner">
+    <div class="wrap">
       <p>&copy; <span data-year></span> McCandless Automotive Services, Grove City, PA</p>
-      <p><a href="#top">Back to top</a></p>
     </div>
   </footer>
 
